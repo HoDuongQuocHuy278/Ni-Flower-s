@@ -7,7 +7,6 @@ Dự án web bán hoa với Laravel Backend và Vue.js Frontend, được docker
 ### Yêu cầu
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://git-scm.com/)
-- MySQL Server (chạy trên port 3306)
 
 ### Cài đặt
 
@@ -21,6 +20,9 @@ docker-compose build
 
 # 3. Khởi động services
 docker-compose up -d
+
+# 4. Chạy migrations (lần đầu tiên)
+docker exec flowershop-backend php artisan migrate --force
 ```
 
 ### Truy cập
@@ -29,6 +31,11 @@ docker-compose up -d
 | 🌐 Frontend | http://localhost:3000 |
 | 🔧 Backend API | http://localhost:8000 |
 | 📊 PHPMyAdmin | http://localhost:8080 |
+| 🗄️ MySQL | localhost:3307 |
+
+**PHPMyAdmin Login:**
+- Username: `root`
+- Password: `root`
 
 ## 📁 Cấu trúc dự án
 
