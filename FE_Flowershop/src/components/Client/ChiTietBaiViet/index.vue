@@ -143,7 +143,7 @@ export default {
             var payload = {
                 id: this.id_bai_viet
             }
-            axios.post('http://127.0.0.1:8000/api/client/chi-tiet-bai-viet/get-data', payload)
+            axios.post('http://localhost:8000/api/client/chi-tiet-bai-viet/get-data', payload)
                 .then((res) => {
                     if (res.data.status) {
                         this.chi_tiet_bai_viet = res.data.data;

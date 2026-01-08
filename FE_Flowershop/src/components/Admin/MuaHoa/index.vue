@@ -106,7 +106,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://127.0.0.1:8000/api/admin/mua-hoa/get-data')
+            axios.get('http://localhost:8000/api/admin/mua-hoa/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
@@ -120,8 +120,8 @@ export default {
             }
             
             const url = this.isEdit 
-                ? 'http://127.0.0.1:8000/api/admin/mua-hoa/update-data'
-                : 'http://127.0.0.1:8000/api/admin/mua-hoa/add-data';
+                ? 'http://localhost:8000/api/admin/mua-hoa/update-data'
+                : 'http://localhost:8000/api/admin/mua-hoa/add-data';
             
             axios.post(url, this.form)
                 .then((res) => {
@@ -138,7 +138,7 @@ export default {
         },
         deleteItem(id) {
             if (confirm('Bạn có chắc muốn xóa?')) {
-                axios.post('http://127.0.0.1:8000/api/admin/mua-hoa/delete-data', { id })
+                axios.post('http://localhost:8000/api/admin/mua-hoa/delete-data', { id })
                     .then((res) => {
                         if (res.data.status) {
                             alert(res.data.message);

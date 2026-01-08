@@ -233,7 +233,7 @@ export default {
     methods: {
         loadData() {
             const id = this.$route.params.id;
-            axios.get('http://127.0.0.1:8000/api/client/bo-hoa/' + id)
+            axios.get('http://localhost:8000/api/client/bo-hoa/' + id)
                 .then((res) => {
                     if (res.data.status) {
                         this.bo_hoa = res.data.data;
@@ -248,7 +248,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=1200&h=1200&fit=crop&q=100';
             if (path.startsWith('http')) return path;
-            return 'http://127.0.0.1:8000' + path;
+            return 'http://localhost:8000' + path;
         },
         openLightbox(index) {
             this.lightboxIndex = index;

@@ -143,13 +143,13 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://127.0.0.1:8000/api/admin/nhan-vien/get-data')
+            axios.get('http://localhost:8000/api/admin/nhan-vien/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
                     }
                 });
-            axios.get('http://127.0.0.1:8000/api/admin/chuc-vu/get-data')
+            axios.get('http://localhost:8000/api/admin/chuc-vu/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.chuc_vus = res.data.data;
@@ -183,8 +183,8 @@ export default {
             }
 
             const url = this.form.id 
-                ? 'http://127.0.0.1:8000/api/admin/nhan-vien/update-data'
-                : 'http://127.0.0.1:8000/api/admin/nhan-vien/add-data';
+                ? 'http://localhost:8000/api/admin/nhan-vien/update-data'
+                : 'http://localhost:8000/api/admin/nhan-vien/add-data';
 
             axios.post(url, this.form)
                 .then((res) => {
@@ -197,7 +197,7 @@ export default {
         },
         deleteItem(item) {
             if (confirm('Xác nhận xóa nhân viên ' + item.ho_va_ten + '?')) {
-                axios.post('http://127.0.0.1:8000/api/admin/nhan-vien/delete-data', { id: item.id })
+                axios.post('http://localhost:8000/api/admin/nhan-vien/delete-data', { id: item.id })
                     .then((res) => {
                         if (res.data.status) {
                             alert(res.data.message);

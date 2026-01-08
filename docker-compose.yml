@@ -10,7 +10,7 @@ services:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: flowershop
+      MYSQL_DATABASE: shop_hoa
       MYSQL_USER: flowershop
       MYSQL_PASSWORD: flowershop
     volumes:
@@ -28,6 +28,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./BE_Flowershop:/var/www
+      - ./BE_Flowershop/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     networks:
       - flowershop-network
     depends_on:
@@ -36,7 +37,7 @@ services:
       - DB_CONNECTION=mysql
       - DB_HOST=mysql
       - DB_PORT=3306
-      - DB_DATABASE=flowershop
+      - DB_DATABASE=shop_hoa
       - DB_USERNAME=root
       - DB_PASSWORD=root
 

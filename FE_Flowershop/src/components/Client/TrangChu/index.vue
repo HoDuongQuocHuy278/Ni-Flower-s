@@ -326,7 +326,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://127.0.0.1:8000/api/client/home-page')
+            axios.get('http://localhost:8000/api/client/home-page')
                 .then((res) => {
                     if (res.data.status) {
                         this.noi_bat = res.data.noi_bat || [];
@@ -344,7 +344,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=400&h=400&fit=crop';
             if (path.startsWith('http')) return path;
-            return 'http://127.0.0.1:8000' + path;
+            return 'http://localhost:8000' + path;
         }
     },
     mounted() {

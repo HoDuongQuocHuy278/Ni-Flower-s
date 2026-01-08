@@ -76,7 +76,7 @@ export default {
             }
             
             this.loading = true;
-            axios.post('http://127.0.0.1:8000/api/admin/dang-nhap', this.form)
+            axios.post('http://localhost:8000/api/admin/dang-nhap', this.form)
                 .then((res) => {
                     this.loading = false;
                     if (res.data.status) {

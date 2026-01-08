@@ -269,13 +269,13 @@ export default {
             return { time, day };
         },
         getBaiViet() {
-            axios.get('http://127.0.0.1:8000/api/admin/bai-viet/get-data')
+            axios.get('http://localhost:8000/api/admin/bai-viet/get-data')
                 .then((res) => {
                     this.list_bai_viet = res.data.data;
                 })
         },
         themBaiViet() {
-            axios.post('http://127.0.0.1:8000/api/admin/bai-viet/add-data', this.create_bai_viet)
+            axios.post('http://localhost:8000/api/admin/bai-viet/add-data', this.create_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -287,7 +287,7 @@ export default {
                 });
         },
         capNhatBaiViet() {
-            axios.post('http://127.0.0.1:8000/api/admin/bai-viet/update', this.edit_bai_viet)
+            axios.post('http://localhost:8000/api/admin/bai-viet/update', this.edit_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -298,7 +298,7 @@ export default {
                 });
         },
         xoaBaiViet() {
-            axios.post('http://127.0.0.1:8000/api/admin/bai-viet/delete', this.del_bai_viet)
+            axios.post('http://localhost:8000/api/admin/bai-viet/delete', this.del_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -309,7 +309,7 @@ export default {
                 });
         },
         doiTrangThai(value) {
-            axios.post('http://127.0.0.1:8000/api/admin/bai-viet/change-status', value)
+            axios.post('http://localhost:8000/api/admin/bai-viet/change-status', value)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);

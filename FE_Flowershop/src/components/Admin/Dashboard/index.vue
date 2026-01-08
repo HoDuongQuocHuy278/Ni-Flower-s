@@ -188,7 +188,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://127.0.0.1:8000/api/admin/bo-hoa/get-data')
+            axios.get('http://localhost:8000/api/admin/bo-hoa/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         const data = res.data.data;
@@ -206,7 +206,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://via.placeholder.com/50x50?text=🌸';
             if (path.startsWith('http')) return path;
-            return 'http://127.0.0.1:8000' + path;
+            return 'http://localhost:8000' + path;
         }
     },
     mounted() {
