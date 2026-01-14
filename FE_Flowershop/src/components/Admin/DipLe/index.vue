@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container-fluid">
             <h3 class="mb-4">Quản Lý Dịp Lễ</h3>
@@ -91,6 +91,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -106,7 +107,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://localhost:8000/api/admin/dip-le/get-data')
+            axios.get(ipbe + '/api/admin/dip-le/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
@@ -120,8 +121,8 @@ export default {
             }
             
             const url = this.isEdit 
-                ? 'http://localhost:8000/api/admin/dip-le/update-data'
-                : 'http://localhost:8000/api/admin/dip-le/add-data';
+                ? ipbe + '/api/admin/dip-le/update-data'
+                : ipbe + '/api/admin/dip-le/add-data';
             
             axios.post(url, this.form)
                 .then((res) => {
@@ -138,7 +139,7 @@ export default {
         },
         deleteItem(id) {
             if (confirm('Bạn có chắc muốn xóa?')) {
-                axios.post('http://localhost:8000/api/admin/dip-le/delete-data', { id })
+                axios.post(ipbe + '/api/admin/dip-le/delete-data', { id })
                     .then((res) => {
                         if (res.data.status) {
                             alert(res.data.message);

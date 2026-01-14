@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="container py-4 py-md-5">
         <div class="row g-4">
             <div class="col-lg-12">
@@ -126,6 +126,7 @@
 
 <script>
 import axios from 'axios';
+    import { ipbe } from '@/config/api';
 
 export default {
     props: ["id_bai_viet"],
@@ -143,7 +144,7 @@ export default {
             var payload = {
                 id: this.id_bai_viet
             }
-            axios.post('http://localhost:8000/api/client/chi-tiet-bai-viet/get-data', payload)
+            axios.post(ipbe + '/api/client/chi-tiet-bai-viet/get-data', payload)
                 .then((res) => {
                     if (res.data.status) {
                         this.chi_tiet_bai_viet = res.data.data;

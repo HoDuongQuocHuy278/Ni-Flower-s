@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <!-- Hero Section - Full Screen with Beautiful Gradient -->
         <section class="hero-section position-relative overflow-hidden">
@@ -284,6 +284,7 @@
 </template>
 <script>
 import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -326,7 +327,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://localhost:8000/api/client/home-page')
+            axios.get(ipbe + '/api/client/home-page')
                 .then((res) => {
                     if (res.data.status) {
                         this.noi_bat = res.data.noi_bat || [];
@@ -344,7 +345,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=400&h=400&fit=crop';
             if (path.startsWith('http')) return path;
-            return 'http://localhost:8000' + path;
+            return ipbe + '' + path;
         }
     },
     mounted() {

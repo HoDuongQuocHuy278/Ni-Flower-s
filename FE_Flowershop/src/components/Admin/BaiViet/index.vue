@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="row">
         <div class="col-lg-12">
             <div class="card radius-10 border-top border-0 border-3 border-info">
@@ -248,6 +248,7 @@
 </template>
 <script>
 import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -269,13 +270,13 @@ export default {
             return { time, day };
         },
         getBaiViet() {
-            axios.get('http://localhost:8000/api/admin/bai-viet/get-data')
+            axios.get(ipbe + '/api/admin/bai-viet/get-data')
                 .then((res) => {
                     this.list_bai_viet = res.data.data;
                 })
         },
         themBaiViet() {
-            axios.post('http://localhost:8000/api/admin/bai-viet/add-data', this.create_bai_viet)
+            axios.post(ipbe + '/api/admin/bai-viet/add-data', this.create_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -287,7 +288,7 @@ export default {
                 });
         },
         capNhatBaiViet() {
-            axios.post('http://localhost:8000/api/admin/bai-viet/update', this.edit_bai_viet)
+            axios.post(ipbe + '/api/admin/bai-viet/update', this.edit_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -298,7 +299,7 @@ export default {
                 });
         },
         xoaBaiViet() {
-            axios.post('http://localhost:8000/api/admin/bai-viet/delete', this.del_bai_viet)
+            axios.post(ipbe + '/api/admin/bai-viet/delete', this.del_bai_viet)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
@@ -309,7 +310,7 @@ export default {
                 });
         },
         doiTrangThai(value) {
-            axios.post('http://localhost:8000/api/admin/bai-viet/change-status', value)
+            axios.post(ipbe + '/api/admin/bai-viet/change-status', value)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -123,6 +123,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -143,13 +144,13 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://localhost:8000/api/admin/nhan-vien/get-data')
+            axios.get(ipbe + '/api/admin/nhan-vien/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
                     }
                 });
-            axios.get('http://localhost:8000/api/admin/chuc-vu/get-data')
+            axios.get(ipbe + '/api/admin/chuc-vu/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.chuc_vus = res.data.data;
@@ -183,8 +184,8 @@ export default {
             }
 
             const url = this.form.id 
-                ? 'http://localhost:8000/api/admin/nhan-vien/update-data'
-                : 'http://localhost:8000/api/admin/nhan-vien/add-data';
+                ? ipbe + '/api/admin/nhan-vien/update-data'
+                : ipbe + '/api/admin/nhan-vien/add-data';
 
             axios.post(url, this.form)
                 .then((res) => {
@@ -197,7 +198,7 @@ export default {
         },
         deleteItem(item) {
             if (confirm('Xác nhận xóa nhân viên ' + item.ho_va_ten + '?')) {
-                axios.post('http://localhost:8000/api/admin/nhan-vien/delete-data', { id: item.id })
+                axios.post(ipbe + '/api/admin/nhan-vien/delete-data', { id: item.id })
                     .then((res) => {
                         if (res.data.status) {
                             alert(res.data.message);

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
@@ -58,6 +58,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -76,7 +77,7 @@ export default {
             }
             
             this.loading = true;
-            axios.post('http://localhost:8000/api/admin/dang-nhap', this.form)
+            axios.post(ipbe + '/api/admin/dang-nhap', this.form)
                 .then((res) => {
                     this.loading = false;
                     if (res.data.status) {

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container-fluid">
             <h3 class="mb-4">🌸 Dashboard - Ni Flower's</h3>
@@ -174,6 +174,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -188,7 +189,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://localhost:8000/api/admin/bo-hoa/get-data')
+            axios.get(ipbe + '/api/admin/bo-hoa/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         const data = res.data.data;
@@ -206,7 +207,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://via.placeholder.com/50x50?text=🌸';
             if (path.startsWith('http')) return path;
-            return 'http://localhost:8000' + path;
+            return ipbe + '' + path;
         }
     },
     mounted() {

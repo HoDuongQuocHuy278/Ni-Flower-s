@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container-fluid">
             <h3 class="mb-4">🌸 Quản Lý Bó Hoa</h3>
@@ -220,6 +220,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -252,7 +253,7 @@ export default {
     },
     methods: {
         loadData() {
-            axios.get('http://localhost:8000/api/admin/bo-hoa/get-data')
+            axios.get(ipbe + '/api/admin/bo-hoa/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
@@ -260,7 +261,7 @@ export default {
                 });
         },
         loadDanhMuc() {
-            axios.get('http://localhost:8000/api/admin/danh-muc/get-data')
+            axios.get(ipbe + '/api/admin/danh-muc/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_danh_muc = res.data.data;
@@ -268,7 +269,7 @@ export default {
                 });
         },
         loadMua() {
-            axios.get('http://localhost:8000/api/admin/mua-hoa/get-data')
+            axios.get(ipbe + '/api/admin/mua-hoa/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_mua = res.data.data;
@@ -276,7 +277,7 @@ export default {
                 });
         },
         loadDipLe() {
-            axios.get('http://localhost:8000/api/admin/dip-le/get-data')
+            axios.get(ipbe + '/api/admin/dip-le/get-data')
                 .then((res) => {
                     if (res.data.status) {
                         this.list_dip_le = res.data.data;
@@ -375,8 +376,8 @@ export default {
             });
             
             const url = this.isEdit 
-                ? 'http://localhost:8000/api/admin/bo-hoa/update-data'
-                : 'http://localhost:8000/api/admin/bo-hoa/add-data';
+                ? ipbe + '/api/admin/bo-hoa/update-data'
+                : ipbe + '/api/admin/bo-hoa/add-data';
             
             axios.post(url, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
@@ -433,7 +434,7 @@ export default {
         },
         deleteItem(id) {
             if (confirm('Bạn có chắc muốn xóa bó hoa này?')) {
-                axios.post('http://localhost:8000/api/admin/bo-hoa/delete-data', { id })
+                axios.post(ipbe + '/api/admin/bo-hoa/delete-data', { id })
                     .then((res) => {
                         if (res.data.status) {
                             alert(res.data.message);
@@ -473,7 +474,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://via.placeholder.com/60x60?text=🌸';
             if (path.startsWith('http')) return path;
-            return 'http://localhost:8000' + path;
+            return ipbe + '' + path;
         }
     },
     mounted() {

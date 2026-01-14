@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container my-5">
             <!-- Breadcrumb -->
@@ -187,6 +187,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -233,7 +234,7 @@ export default {
     methods: {
         loadData() {
             const id = this.$route.params.id;
-            axios.get('http://localhost:8000/api/client/bo-hoa/' + id)
+            axios.get(ipbe + '/api/client/bo-hoa/' + id)
                 .then((res) => {
                     if (res.data.status) {
                         this.bo_hoa = res.data.data;
@@ -248,7 +249,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=1200&h=1200&fit=crop&q=100';
             if (path.startsWith('http')) return path;
-            return 'http://localhost:8000' + path;
+            return ipbe + '' + path;
         },
         openLightbox(index) {
             this.lightboxIndex = index;

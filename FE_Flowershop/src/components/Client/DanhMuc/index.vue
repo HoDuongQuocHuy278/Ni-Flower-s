@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <div class="container my-5">
             <!-- Breadcrumb -->
@@ -116,6 +116,7 @@
 <script>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { ipbe } from '@/config/api';
 export default {
     data() {
         return {
@@ -145,7 +146,7 @@ export default {
             if (this.filter.id_mua) params.id_mua = this.filter.id_mua;
             if (this.filter.id_dip_le) params.id_dip_le = this.filter.id_dip_le;
 
-            axios.get('http://localhost:8000/api/client/bo-hoa', { params })
+            axios.get(ipbe + '/api/client/bo-hoa', { params })
                 .then((res) => {
                     if (res.data.status) {
                         this.list_data = res.data.data;
@@ -153,13 +154,13 @@ export default {
                 });
         },
         loadFilters() {
-            axios.get('http://localhost:8000/api/client/danh-muc').then((res) => {
+            axios.get(ipbe + '/api/client/danh-muc').then((res) => {
                 if (res.data.status) this.danh_mucs = res.data.data;
             });
-            axios.get('http://localhost:8000/api/client/mua-hoa').then((res) => {
+            axios.get(ipbe + '/api/client/mua-hoa').then((res) => {
                 if (res.data.status) this.mua_hoas = res.data.data;
             });
-            axios.get('http://localhost:8000/api/client/dip-le').then((res) => {
+            axios.get(ipbe + '/api/client/dip-le').then((res) => {
                 if (res.data.status) this.dip_les = res.data.data;
             });
         },
@@ -173,7 +174,7 @@ export default {
         getImageUrl(path) {
             if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=300&h=300&fit=crop';
             if (path.startsWith('http')) return path;
-            return 'http://localhost:8000' + path;
+            return ipbe + '' + path;
         },
         getTitle() {
             if (this.filter.id_mua) {
