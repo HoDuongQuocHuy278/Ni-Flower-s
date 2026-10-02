@@ -1,30 +1,32 @@
-﻿<template>
-    <div>
-        <!-- Hero Section - Full Screen with Beautiful Gradient -->
+<template>
+    <div class="home-page-container">
+        <!-- =========================================================
+             HERO SECTION (App-Optimized Banner & Desktop Hero)
+             ========================================================= -->
         <section class="hero-section position-relative overflow-hidden">
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
-            <div class="container position-relative h-100 d-flex align-items-center" style="min-height: 100vh;">
-                <div class="row w-100 align-items-center">
+            <div class="container position-relative py-4 py-lg-5">
+                <div class="row align-items-center">
                     <div class="col-lg-6 text-center text-lg-start">
-                        <span class="badge hero-badge mb-4">🌸 Ni Flower's - Hoa Tươi Mỗi Ngày</span>
+                        <span class="badge hero-badge mb-3 mb-lg-4">
+                            <span>🌸</span> Ni Flower's • Tiệm Hoa Đà Nẵng
+                        </span>
                         <h1 class="hero-title">
-                            Gửi Yêu Thương
-                            <span class="text-gradient">Bằng Hoa</span>
+                            Gửi Yêu Thương <span class="text-gradient">Bằng Hoa</span>
                         </h1>
                         <p class="hero-subtitle">
-                            Chuyên cung cấp hoa tươi cao cấp, giao hàng tận nơi trong 2 giờ.
-                            Cam kết hoa tươi 100%, thiết kế theo yêu cầu.
+                            Hoa tươi thiết kế tinh tế theo yêu cầu, giao hỏa tốc 2 giờ tại Đà Nẵng. Cam kết hoa tươi 100% tuyển chọn mỗi ngày.
                         </p>
-                        <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <div class="d-flex gap-2 gap-sm-3 flex-wrap justify-content-center justify-content-lg-start mb-4">
                             <router-link to="/danh-muc" class="btn btn-hero-primary">
-                                <i class="fa fa-shopping-bag me-2"></i> Khám Phá Ngay
+                                <i class="fa fa-shopping-bag me-1 me-sm-2"></i> Khám Phá Ngay
                             </router-link>
                             <a href="tel:0905999276" class="btn btn-hero-outline">
-                                <i class="fa fa-phone me-2"></i> Gọi Đặt Hoa
+                                <i class="fa fa-phone me-1 me-sm-2"></i> Gọi Đặt Hoa
                             </a>
                         </div>
-                        <div class="hero-stats mt-5">
+                        <div class="hero-stats d-flex justify-content-center justify-content-lg-start gap-4">
                             <div class="stat-item">
                                 <span class="stat-number">500+</span>
                                 <span class="stat-label">Mẫu Hoa</span>
@@ -39,39 +41,69 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 text-center mt-5 mt-lg-0">
+
+                    <!-- Hero Visual (Desktop Only / Tablet) -->
+                    <div class="col-lg-6 text-center mt-4 mt-lg-0 d-none d-lg-block">
                         <div class="hero-image-container">
                             <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&h=900&fit=crop" 
-                                class="hero-main-image" alt="Hoa tươi">
+                                class="hero-main-image" 
+                                alt="Hoa tươi Đà Nẵng">
                             <div class="floating-badge badge-1">
-                                <span>🚀</span> Giao hàng 2H
+                                <span>🚀</span> Giao nhanh 2H
                             </div>
                             <div class="floating-badge badge-2">
-                                <span>⭐</span> 4.9/5 Rating
+                                <span>⭐</span> 4.9/5 Đánh giá
                             </div>
                             <div class="floating-badge badge-3">
-                                <span>💝</span> Thiết kế đẹp
+                                <span>💝</span> Tặng kèm thiệp
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <a href="#danh-muc"><i class="fa fa-chevron-down"></i></a>
-            </div>
         </section>
 
-        <!-- Categories Section -->
-        <section id="danh-muc" class="section-padding section-categories">
+        <!-- =========================================================
+             APP-STYLE HORIZONTAL CATEGORIES & STORIES
+             ========================================================= -->
+        <section class="section-quick-categories py-3 py-lg-4">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge">Danh Mục</span>
-                    <h2 class="section-title">Hoa Theo <span class="text-primary-gradient">Dịp Lễ</span></h2>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                        <span>✨</span> Danh Mục Nổi Bật
+                    </h5>
+                    <router-link to="/danh-muc" class="text-decoration-none small text-danger fw-bold">
+                        Xem tất cả <i class="fa fa-chevron-right small"></i>
+                    </router-link>
                 </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6 col-md-4 col-lg-2" v-for="(cat, index) in categories" :key="index">
+
+                <!-- Horizontal Scroll for Mobile, Grid for Desktop -->
+                <div class="app-scroll-chips mb-2">
+                    <router-link to="/danh-muc" class="app-chip active">
+                        <span>💐</span> Tất cả
+                    </router-link>
+                    <router-link v-for="(cat, index) in categories" :key="index" :to="cat.link" class="app-chip">
+                        <span>{{ cat.icon }}</span> {{ cat.name }}
+                    </router-link>
+                    <router-link to="/mua/1" class="app-chip">
+                        <span>🌸</span> Mùa Xuân
+                    </router-link>
+                    <router-link to="/mua/2" class="app-chip">
+                        <span>☀️</span> Mùa Hạ
+                    </router-link>
+                    <router-link to="/mua/3" class="app-chip">
+                        <span>🍂</span> Mùa Thu
+                    </router-link>
+                    <router-link to="/mua/4" class="app-chip">
+                        <span>❄️</span> Mùa Đông
+                    </router-link>
+                </div>
+
+                <!-- Category Cards Grid (Desktop & Tablet) -->
+                <div class="row g-3 g-lg-4 mt-2 d-none d-md-flex">
+                    <div class="col-4 col-lg-2" v-for="(cat, index) in categories" :key="'grid-' + index">
                         <router-link :to="cat.link" class="text-decoration-none">
-                            <div class="category-card">
+                            <div class="category-box">
                                 <div class="category-icon">{{ cat.icon }}</div>
                                 <h6 class="category-name">{{ cat.name }}</h6>
                             </div>
@@ -81,39 +113,135 @@
             </div>
         </section>
 
-        <!-- Hot Products Section -->
-        <section id="san-pham-hot" class="section-padding section-products">
+        <!-- =========================================================
+             HOT PRODUCTS SECTION (Bán Chạy)
+             ========================================================= -->
+        <section id="san-pham-hot" class="section-padding py-4 py-lg-5">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header d-flex justify-content-between align-items-center mb-3 mb-lg-4">
                     <div>
-                        <span class="section-badge">🔥 Bán Chạy</span>
-                        <h2 class="section-title">Sản Phẩm <span class="text-primary-gradient">Hot</span></h2>
+                        <span class="app-badge-pill app-badge-hot mb-1">
+                            <i class="fa fa-fire"></i> Bán Chạy Nhất
+                        </span>
+                        <h2 class="section-title fs-3 fs-lg-2">
+                            Sản Phẩm <span class="text-primary-gradient">Nổi Bật</span>
+                        </h2>
                     </div>
-                    <router-link to="/danh-muc" class="btn btn-view-all">
-                        Xem tất cả <i class="fa fa-arrow-right ms-2"></i>
+                    <router-link to="/danh-muc" class="btn btn-view-all btn-sm">
+                        Xem tất cả <i class="fa fa-arrow-right ms-1"></i>
                     </router-link>
                 </div>
-                <div class="row g-4">
+
+                <!-- 2 Columns on Mobile, 4 Columns on Desktop -->
+                <div class="row g-2 g-sm-3 g-lg-4">
                     <div class="col-6 col-md-4 col-lg-3" v-for="item in noi_bat.slice(0, 8)" :key="'hot-' + item.id">
-                        <div class="product-card">
-                            <div class="product-image-wrapper">
-                                <img :src="getImageUrl(item.hinh_anh)" class="product-image" alt="">
-                                <div class="product-overlay">
-                                    <router-link :to="'/chi-tiet/' + item.id" class="btn-quick-view">
-                                        <i class="fa fa-eye"></i>
-                                    </router-link>
+                        <div class="app-product-card" @click="$router.push('/chi-tiet/' + item.id)">
+                            <div class="app-product-img-wrapper">
+                                <img :src="getImageUrl(item.hinh_anh)" 
+                                    class="app-product-img" 
+                                    :alt="item.ten_bo_hoa" 
+                                    @error="onImageError"
+                                    loading="lazy">
+                                <div class="app-product-badge-group">
+                                    <span class="app-badge-pill app-badge-hot">
+                                        <i class="fa fa-fire"></i> Hot
+                                    </span>
                                 </div>
-                                <span v-if="item.phan_tram_giam" class="discount-badge">-{{ item.phan_tram_giam }}%</span>
-                                <span class="hot-badge">🔥</span>
+                                <span v-if="item.phan_tram_giam" class="app-badge-pill app-badge-discount">
+                                    -{{ item.phan_tram_giam }}%
+                                </span>
                             </div>
-                            <div class="product-info">
-                                <h6 class="product-title">{{ item.ten_bo_hoa }}</h6>
-                                <div class="product-price">
-                                    <span v-if="item.gia_giam" class="price-sale">{{ formatPrice(item.gia_giam) }}đ</span>
-                                    <span :class="item.gia_giam ? 'price-original' : 'price-sale'">{{ formatPrice(item.gia) }}đ</span>
+                            <div class="app-product-body">
+                                <h6 class="app-product-title" :title="item.ten_bo_hoa">{{ item.ten_bo_hoa }}</h6>
+                                <div class="app-product-price-row">
+                                    <span v-if="item.gia_giam" class="app-price-current">{{ formatPrice(item.gia_giam) }}đ</span>
+                                    <span :class="item.gia_giam ? 'app-price-old' : 'app-price-current'">{{ formatPrice(item.gia) }}đ</span>
                                 </div>
-                                <router-link :to="'/chi-tiet/' + item.id" class="btn-product">
-                                    Xem Chi Tiết
+                                <router-link :to="'/chi-tiet/' + item.id" class="app-btn-view" @click.stop>
+                                    <i class="fa fa-eye"></i> Xem Chi Tiết
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty state fallback if no hot products loaded -->
+                <div v-if="noi_bat.length === 0" class="text-center py-5">
+                    <div class="spinner-border text-danger" role="status"></div>
+                    <p class="text-muted mt-2 small">Đang tải sản phẩm...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PROMO BANNER
+             ========================================================= -->
+        <section class="promo-section my-3 my-lg-4">
+            <div class="promo-overlay"></div>
+            <div class="container position-relative py-4 py-lg-5">
+                <div class="row align-items-center text-center text-lg-start">
+                    <div class="col-lg-8">
+                        <span class="promo-badge">
+                            <i class="fa fa-gift me-1"></i> Ưu Đãi Đặt Online
+                        </span>
+                        <h2 class="promo-title">Giảm Ngay 10% - 30% Đặt Trước 24H</h2>
+                        <p class="promo-text mb-3 mb-lg-0">
+                            Tặng kèm thiệp thiết kế riêng & miễn phí ship bán kính 5km tại Đà Nẵng.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end mt-2 mt-lg-0">
+                        <router-link to="/danh-muc" class="btn btn-promo">
+                            Chọn Hoa Ngay <i class="fa fa-arrow-right ms-1"></i>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             NEW PRODUCTS SECTION (Mới Nhất)
+             ========================================================= -->
+        <section class="section-padding py-4 py-lg-5 bg-subtle-pink">
+            <div class="container">
+                <div class="section-header d-flex justify-content-between align-items-center mb-3 mb-lg-4">
+                    <div>
+                        <span class="app-badge-pill app-badge-new mb-1">
+                            <i class="fa fa-leaf"></i> Vừa Ra Mắt
+                        </span>
+                        <h2 class="section-title fs-3 fs-lg-2">
+                            Mẫu Mới <span class="text-success">Tháng Này</span>
+                        </h2>
+                    </div>
+                    <router-link to="/danh-muc" class="btn btn-view-all-green btn-sm">
+                        Xem tất cả <i class="fa fa-arrow-right ms-1"></i>
+                    </router-link>
+                </div>
+
+                <!-- 2 Columns on Mobile, 4 Columns on Desktop -->
+                <div class="row g-2 g-sm-3 g-lg-4">
+                    <div class="col-6 col-md-4 col-lg-3" v-for="item in moi_nhat.slice(0, 8)" :key="'new-' + item.id">
+                        <div class="app-product-card" @click="$router.push('/chi-tiet/' + item.id)">
+                            <div class="app-product-img-wrapper">
+                                <img :src="getImageUrl(item.hinh_anh)" 
+                                    class="app-product-img" 
+                                    :alt="item.ten_bo_hoa"
+                                    @error="onImageError"
+                                    loading="lazy">
+                                <div class="app-product-badge-group">
+                                    <span class="app-badge-pill app-badge-new">NEW</span>
+                                </div>
+                                <span v-if="item.phan_tram_giam" class="app-badge-pill app-badge-discount">
+                                    -{{ item.phan_tram_giam }}%
+                                </span>
+                            </div>
+                            <div class="app-product-body">
+                                <h6 class="app-product-title" :title="item.ten_bo_hoa">{{ item.ten_bo_hoa }}</h6>
+                                <div class="app-product-price-row">
+                                    <span v-if="item.gia_giam" class="app-price-current text-success">{{ formatPrice(item.gia_giam) }}đ</span>
+                                    <span :class="item.gia_giam ? 'app-price-old' : 'app-price-current text-success'">{{ formatPrice(item.gia) }}đ</span>
+                                </div>
+                                <router-link :to="'/chi-tiet/' + item.id" class="app-btn-view btn-green" @click.stop>
+                                    <i class="fa fa-eye"></i> Xem Chi Tiết
                                 </router-link>
                             </div>
                         </div>
@@ -122,61 +250,23 @@
             </div>
         </section>
 
-        <!-- Promo Banner -->
-        <section class="promo-section">
-            <div class="promo-overlay"></div>
-            <div class="container position-relative">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <span class="promo-badge">🎉 Ưu Đãi Đặc Biệt</span>
-                        <h2 class="promo-title">Giảm 30% Cho Đơn Hàng Online!</h2>
-                        <p class="promo-text">Áp dụng từ nay đến hết tháng 12. Đặt hoa ngay để nhận ưu đãi.</p>
-                    </div>
-                    <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                        <router-link to="/danh-muc" class="btn btn-promo">
-                            Mua Ngay <i class="fa fa-arrow-right ms-2"></i>
-                        </router-link>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Flower Types Section -->
-        <section class="section-padding section-flower-types">
+        <!-- =========================================================
+             SEASON SHOWCASE (Bốn Mùa)
+             ========================================================= -->
+        <section class="section-padding py-4 py-lg-5">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge">Loại Hoa</span>
-                    <h2 class="section-title">Hoa <span class="text-primary-gradient">Phổ Biến</span></h2>
+                <div class="text-center mb-3 mb-lg-4">
+                    <span class="app-badge-pill bg-light text-secondary mb-1">Thiết Kế Theo Mùa</span>
+                    <h2 class="section-title fs-3 fs-lg-2">Bộ Sưu Tập <span class="text-primary-gradient">Bốn Mùa</span></h2>
                 </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6 col-md-4 col-lg-2" v-for="(flower, index) in flowerTypes" :key="index">
-                        <div class="flower-card">
-                            <div class="flower-image-wrapper">
-                                <img :src="flower.image" class="flower-image" alt="">
-                            </div>
-                            <h6 class="flower-name">{{ flower.name }}</h6>
-                            <small class="flower-desc">{{ flower.desc }}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Season Section -->
-        <section class="section-padding section-seasons">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge">Theo Mùa</span>
-                    <h2 class="section-title">Hoa <span class="text-primary-gradient">Bốn Mùa</span></h2>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6 col-md-3" v-for="(season, index) in seasons" :key="index">
+                <div class="row g-2 g-sm-3 g-lg-4 justify-content-center">
+                    <div class="col-6 col-md-3" v-for="(season, index) in seasons" :key="'season-' + index">
                         <router-link :to="'/mua/' + season.id" class="text-decoration-none">
                             <div class="season-card">
-                                <img :src="season.image" class="season-image" alt="">
+                                <img :src="season.image" class="season-image" :alt="season.name">
                                 <div class="season-overlay">
                                     <span class="season-icon">{{ season.icon }}</span>
-                                    <h4 class="season-name">{{ season.name }}</h4>
+                                    <h5 class="season-name">{{ season.name }}</h5>
                                 </div>
                             </div>
                         </router-link>
@@ -185,54 +275,16 @@
             </div>
         </section>
 
-        <!-- New Products Section -->
-        <section class="section-padding section-products bg-light-pink">
+        <!-- =========================================================
+             APP FEATURES & COMMITMENTS (Tại sao chọn Ni Flower's)
+             ========================================================= -->
+        <section class="section-features py-4 py-lg-5">
             <div class="container">
-                <div class="section-header">
-                    <div>
-                        <span class="section-badge-green">🌱 Mới Nhất</span>
-                        <h2 class="section-title">Sản Phẩm <span class="text-success">Mới</span></h2>
-                    </div>
-                    <router-link to="/danh-muc" class="btn btn-view-all-green">
-                        Xem tất cả <i class="fa fa-arrow-right ms-2"></i>
-                    </router-link>
-                </div>
-                <div class="row g-4">
-                    <div class="col-6 col-md-4 col-lg-3" v-for="item in moi_nhat.slice(0, 8)" :key="'new-' + item.id">
-                        <div class="product-card">
-                            <div class="product-image-wrapper">
-                                <img :src="getImageUrl(item.hinh_anh)" class="product-image" alt="">
-                                <div class="product-overlay">
-                                    <router-link :to="'/chi-tiet/' + item.id" class="btn-quick-view green">
-                                        <i class="fa fa-eye"></i>
-                                    </router-link>
-                                </div>
-                                <span class="new-badge">NEW</span>
-                            </div>
-                            <div class="product-info">
-                                <h6 class="product-title">{{ item.ten_bo_hoa }}</h6>
-                                <div class="product-price">
-                                    <span v-if="item.gia_giam" class="price-sale green">{{ formatPrice(item.gia_giam) }}đ</span>
-                                    <span :class="item.gia_giam ? 'price-original' : 'price-sale green'">{{ formatPrice(item.gia) }}đ</span>
-                                </div>
-                                <router-link :to="'/chi-tiet/' + item.id" class="btn-product green">
-                                    Xem Chi Tiết
-                                </router-link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="section-features">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-6 col-md-3" v-for="(feature, index) in features" :key="index">
-                        <div class="feature-card">
+                <div class="row g-3 g-lg-4">
+                    <div class="col-6 col-md-3" v-for="(feature, index) in features" :key="'feat-' + index">
+                        <div class="feature-box">
                             <div class="feature-icon">{{ feature.icon }}</div>
-                            <h5 class="feature-title">{{ feature.title }}</h5>
+                            <h6 class="feature-title">{{ feature.title }}</h6>
                             <p class="feature-text">{{ feature.text }}</p>
                         </div>
                     </div>
@@ -240,51 +292,57 @@
             </div>
         </section>
 
-        <!-- Reviews Section -->
-        <section class="section-padding section-reviews">
+        <!-- =========================================================
+             CUSTOMER REVIEWS
+             ========================================================= -->
+        <section class="section-padding py-4 py-lg-5 bg-white">
             <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge">Đánh Giá</span>
-                    <h2 class="section-title">Khách Hàng <span class="text-primary-gradient">Nói Gì?</span></h2>
+                <div class="text-center mb-3 mb-lg-4">
+                    <span class="app-badge-pill bg-light text-secondary mb-1">Khách Hàng Tin Cậy</span>
+                    <h2 class="section-title fs-3 fs-lg-2">Đánh Giá Từ <span class="text-primary-gradient">Khách Yêu</span></h2>
                 </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-4" v-for="(review, index) in reviews" :key="index">
-                        <div class="review-card">
-                            <div class="review-header">
-                                <img :src="review.avatar" class="review-avatar" alt="">
+                <div class="row g-3 g-lg-4">
+                    <div class="col-12 col-md-4" v-for="(review, index) in reviews" :key="'rev-' + index">
+                        <div class="review-box">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <img :src="review.avatar" class="review-avatar" alt="Avatar">
                                 <div>
-                                    <h6 class="review-name">{{ review.name }}</h6>
-                                    <div class="review-stars">{{ review.stars }}</div>
+                                    <h6 class="review-name mb-0">{{ review.name }}</h6>
+                                    <div class="text-warning small">{{ review.stars }}</div>
                                 </div>
                             </div>
-                            <p class="review-content">"{{ review.content }}"</p>
+                            <p class="review-text small mb-0">"{{ review.content }}"</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
+        <!-- =========================================================
+             BOTTOM CTA SECTION
+             ========================================================= -->
+        <section class="cta-section py-4 py-lg-5 text-center text-white position-relative">
             <div class="cta-overlay"></div>
-            <div class="container text-center position-relative">
-                <h2 class="cta-title">Sẵn Sàng Đặt Hoa?</h2>
-                <p class="cta-text">Liên hệ ngay để được tư vấn và đặt hoa đẹp nhất!</p>
-                <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <div class="container position-relative">
+                <h2 class="cta-title fs-2 fs-lg-1">Bạn Cần Tư Vấn Đặt Hoa Ngay?</h2>
+                <p class="cta-text mb-4 opacity-90">Gọi hotline hoặc nhắn Zalo để được tư vấn bó hoa ưng ý nhất chỉ trong 5 phút!</p>
+                <div class="d-flex gap-2 gap-sm-3 justify-content-center flex-wrap">
                     <a href="tel:0905999276" class="btn btn-cta-primary">
-                        <i class="fa fa-phone me-2"></i> 0905 999 276
+                        <i class="fa fa-phone me-1"></i> Gọi 0905 999 276
                     </a>
                     <a href="https://zalo.me/0905999276" target="_blank" class="btn btn-cta-outline">
-                        <i class="fa fa-comment me-2"></i> Chat Zalo
+                        <i class="fa fa-comment me-1"></i> Chat Zalo Tư Vấn
                     </a>
                 </div>
             </div>
         </section>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
-    import { ipbe } from '@/config/api';
+import { ipbe } from '@/config/api';
+
 export default {
     data() {
         return {
@@ -293,18 +351,10 @@ export default {
             categories: [
                 { name: 'Tình Yêu', icon: '💕', link: '/dip-le/1' },
                 { name: 'Đám Cưới', icon: '💒', link: '/dip-le/2' },
-                { name: 'Chia Buồn', icon: '🕯️', link: '/dip-le/3' },
                 { name: 'Khai Trương', icon: '🏠', link: '/dip-le/4' },
                 { name: 'Sinh Nhật', icon: '🎂', link: '/dip-le/5' },
+                { name: 'Chia Buồn', icon: '🕯️', link: '/dip-le/3' },
                 { name: 'Lễ Hội', icon: '🎉', link: '/dip-le/6' },
-            ],
-            flowerTypes: [
-                { name: 'Hoa Hồng', desc: 'Tình yêu', image: 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=300&h=300&fit=crop' },
-                { name: 'Hoa Lan', desc: 'Sang trọng', image: 'https://images.unsplash.com/photo-1566667586429-b16d5ed2b0f0?w=300&h=300&fit=crop' },
-                { name: 'Hoa Tulip', desc: 'Thanh lịch', image: 'https://images.unsplash.com/photo-1520763185298-1b434c919102?w=300&h=300&fit=crop' },
-                { name: 'Hoa Cúc', desc: 'Thuần khiết', image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=300&h=300&fit=crop' },
-                { name: 'Hoa Ly', desc: 'Quyến rũ', image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=300&h=300&fit=crop' },
-                { name: 'Hoa Sen', desc: 'Tinh tế', image: 'https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?w=300&h=300&fit=crop' },
             ],
             seasons: [
                 { id: 1, name: 'Mùa Xuân', icon: '🌸', image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500&h=600&fit=crop' },
@@ -313,17 +363,17 @@ export default {
                 { id: 4, name: 'Mùa Đông', icon: '❄️', image: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=500&h=600&fit=crop' },
             ],
             features: [
-                { icon: '🚚', title: 'Giao Nhanh 2H', text: 'Trong nội thành' },
-                { icon: '🌹', title: 'Hoa Tươi 100%', text: 'Cam kết chất lượng' },
-                { icon: '💳', title: 'Thanh Toán Dễ', text: 'COD, Banking' },
-                { icon: '🎁', title: 'Quà Tặng Kèm', text: 'Thiệp, ruy băng' },
+                { icon: '🚀', title: 'Giao Nhanh 2H', text: 'Nội thành Đà Nẵng' },
+                { icon: '🌹', title: 'Hoa Tươi 100%', text: 'Tuyển chọn mỗi sáng' },
+                { icon: '💝', title: 'Tặng Kèm Thiệp', text: 'Thiết kế chữ nắn nót' },
+                { icon: '🛡️', title: 'Đổi Trả Uy Tín', text: 'Cam kết chất lượng' },
             ],
             reviews: [
-                { name: 'Chị Lan Anh', avatar: 'https://randomuser.me/api/portraits/women/32.jpg', stars: '⭐⭐⭐⭐⭐', content: 'Hoa rất đẹp và tươi lâu. Giao hàng nhanh, đóng gói cẩn thận!' },
-                { name: 'Anh Minh Tuấn', avatar: 'https://randomuser.me/api/portraits/men/45.jpg', stars: '⭐⭐⭐⭐⭐', content: 'Đặt hoa tặng vợ ngày 8/3, bó hoa đẹp hơn hình. Rất hài lòng!' },
-                { name: 'Chị Thu Hà', avatar: 'https://randomuser.me/api/portraits/women/68.jpg', stars: '⭐⭐⭐⭐⭐', content: 'Giá cả hợp lý, mẫu mã phong phú. Liên hệ qua Zalo rất tiện!' },
+                { name: 'Chị Lan Anh', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop', stars: '⭐⭐⭐⭐⭐', content: 'Hoa rất đẹp và tươi lâu. Giao hàng hỏa tốc đúng giờ, gói rất sang trọng!' },
+                { name: 'Anh Minh Tuấn', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop', stars: '⭐⭐⭐⭐⭐', content: 'Đặt hoa tặng bạn gái ngày 8/3, bó hoa ngoài đời đẹp hơn hình chụp. Sẽ tiếp tục ủng hộ!' },
+                { name: 'Chị Thu Hà', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop', stars: '⭐⭐⭐⭐⭐', content: 'Shop tư vấn nhiệt tình, giá cả rất hợp lý. Có chụp ảnh gửi xem trước khi ship!' },
             ]
-        }
+        };
     },
     methods: {
         loadData() {
@@ -343,675 +393,456 @@ export default {
             return new Intl.NumberFormat('vi-VN').format(price);
         },
         getImageUrl(path) {
-            if (!path) return 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=400&h=400&fit=crop';
+            if (!path) return 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500&h=500&fit=crop';
             if (path.startsWith('http')) return path;
             return ipbe + '' + path;
+        },
+        onImageError(e) {
+            e.target.src = 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=500&h=500&fit=crop';
         }
     },
     mounted() {
         this.loadData();
-    },
-}
+    }
+};
 </script>
-<style>
-/* ===== VARIABLES ===== */
-:root {
-    --primary: #e91e63;
-    --primary-dark: #c2185b;
-    --primary-light: #f8bbd9;
-    --secondary: #ff6b9d;
-    --gradient: linear-gradient(135deg, #e91e63 0%, #ff6b9d 50%, #ffc371 100%);
-    --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+
+<style scoped>
+.home-page-container {
+    overflow-x: hidden;
 }
 
 /* ===== HERO SECTION ===== */
 .hero-section {
-    min-height: 100vh;
     position: relative;
+    background: #1a1a2e;
+    color: white;
 }
+
 .hero-bg {
     position: absolute;
     inset: 0;
     background: url('https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1920&h=1080&fit=crop') center/cover;
+    filter: brightness(0.65);
 }
+
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 52, 96, 0.85) 100%);
-}
-.hero-badge {
-    display: inline-block;
-    background: var(--gradient);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    animation: pulse 2s infinite;
-}
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-.text-gradient {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-.text-primary-gradient {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 2rem;
-    line-height: 1.8;
-}
-.btn-hero-primary {
-    background: var(--gradient);
-    color: white;
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-weight: 600;
-    border: none;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-.btn-hero-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
-    color: white;
-}
-.btn-hero-outline {
-    background: transparent;
-    color: white;
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-weight: 600;
-    border: 2px solid rgba(255,255,255,0.5);
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-.btn-hero-outline:hover {
-    background: white;
-    color: var(--primary);
-}
-.hero-stats {
-    display: flex;
-    gap: 40px;
-}
-.stat-item {
-    text-align: center;
-}
-.stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.stat-label {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.9rem;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.94) 0%, rgba(194, 24, 91, 0.75) 100%);
 }
 
-/* Hero Image */
+.hero-badge {
+    background: linear-gradient(135deg, #e91e63, #ff6b9d);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    color: #ffffff !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.85rem;
+    }
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffc371 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-primary-gradient {
+    background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+}
+
+.btn-hero-primary {
+    background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
+    color: white;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 24px rgba(233, 30, 99, 0.4);
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(233, 30, 99, 0.5);
+    color: white;
+}
+
+.btn-hero-outline {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-hero-outline:hover {
+    background: white;
+    color: #c2185b;
+}
+
+.hero-stats {
+    gap: 30px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff8e53, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
 .hero-image-container {
     position: relative;
+    display: inline-block;
 }
+
 .hero-main-image {
     width: 100%;
-    max-width: 450px;
-    height: 550px;
+    max-width: 420px;
+    height: 480px;
     object-fit: cover;
-    border-radius: 30px;
-    border: 5px solid rgba(255,255,255,0.2);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    border: 4px solid rgba(255, 255, 255, 0.2);
 }
+
 .floating-badge {
     position: absolute;
     background: white;
-    padding: 12px 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    font-weight: 600;
-    font-size: 0.9rem;
-    animation: float 3s ease-in-out infinite;
+    color: #1a1a2e;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: floatAnim 3s ease-in-out infinite;
 }
-.floating-badge span {
-    margin-right: 5px;
-}
-.badge-1 { top: 10%; left: -10%; animation-delay: 0s; }
-.badge-2 { top: 50%; right: -10%; animation-delay: 1s; }
+
+.badge-1 { top: 12%; left: -6%; }
+.badge-2 { top: 52%; right: -6%; animation-delay: 1s; }
 .badge-3 { bottom: 10%; left: 0%; animation-delay: 2s; }
 
-@keyframes float {
+@keyframes floatAnim {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    50% { transform: translateY(-8px); }
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.scroll-indicator a {
-    color: white;
-    font-size: 1.5rem;
-    animation: bounce 2s infinite;
-}
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
+/* Category Box (Grid view for desktop) */
+.category-box {
+    background: white;
+    border-radius: 18px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(233, 30, 99, 0.06);
+    border: 1px solid rgba(233, 30, 99, 0.08);
+    transition: all 0.25s ease;
+    height: 100%;
 }
 
-/* ===== SECTIONS ===== */
-.section-padding {
-    padding: 80px 0;
+.category-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(233, 30, 99, 0.15);
+    border-color: #ff6b9d;
 }
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-    gap: 20px;
+
+.category-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
 }
-.section-header.text-center {
-    flex-direction: column;
-}
-.section-badge {
-    display: inline-block;
-    background: var(--primary-light);
-    color: var(--primary);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
+
+.category-name {
     font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-.section-badge-green {
-    display: inline-block;
-    background: #c8e6c9;
-    color: #2e7d32;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #1a1a2e;
     margin: 0;
 }
+
 .btn-view-all {
-    background: var(--primary-light);
-    color: var(--primary);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    background: #fff0f5;
+    color: #e91e63;
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-weight: 700;
     text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(233, 30, 99, 0.2);
 }
+
 .btn-view-all:hover {
-    background: var(--primary);
+    background: #e91e63;
     color: white;
 }
+
 .btn-view-all-green {
-    background: #c8e6c9;
+    background: #e8f5e9;
     color: #2e7d32;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-weight: 700;
     text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(46, 125, 50, 0.2);
 }
+
 .btn-view-all-green:hover {
     background: #2e7d32;
     color: white;
 }
 
-/* ===== CATEGORY CARDS ===== */
-.section-categories {
-    background: linear-gradient(180deg, #fff5f8 0%, #ffffff 100%);
-}
-.category-card {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(233, 30, 99, 0.08);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-.category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(233, 30, 99, 0.15);
-}
-.category-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-.category-name {
-    font-weight: 700;
-    color: #1a1a2e;
-    margin: 0;
+.bg-subtle-pink {
+    background: linear-gradient(180deg, #fffbfd 0%, #faf8f9 100%);
 }
 
-/* ===== PRODUCT CARDS ===== */
-.product-card {
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-}
-.product-image-wrapper {
-    height: 280px;
-    position: relative;
-    overflow: hidden;
-}
-.product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.product-card:hover .product-image {
-    transform: scale(1.1);
-}
-.product-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(233, 30, 99, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.product-card:hover .product-overlay {
-    opacity: 1;
-}
-.btn-quick-view {
-    width: 50px;
-    height: 50px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-.btn-quick-view.green {
-    color: #2e7d32;
-}
-.btn-quick-view:hover {
-    transform: scale(1.1);
-}
-.discount-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--primary);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-.hot-badge, .new-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-.hot-badge { background: #ff6b35; color: white; }
-.new-badge { background: #2e7d32; color: white; }
-.product-info {
-    padding: 25px;
-}
-.product-title {
-    font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.product-price {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.price-sale {
-    color: var(--primary);
-    font-weight: 800;
-    font-size: 1.2rem;
-}
-.price-sale.green {
-    color: #2e7d32;
-}
-.price-original {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 0.9rem;
-}
-.btn-product {
-    display: block;
-    width: 100%;
-    background: var(--gradient);
-    color: white;
-    text-align: center;
-    padding: 12px;
-    border-radius: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.btn-product.green {
-    background: linear-gradient(135deg, #4caf50, #2e7d32);
-}
-.btn-product:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
-    color: white;
-}
-.btn-product.green:hover {
-    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+.btn-green {
+    background: linear-gradient(135deg, #34c759, #28a745) !important;
 }
 
-/* ===== PROMO SECTION ===== */
+/* Promo Banner */
 .promo-section {
-    background: url('https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=1920&h=400&fit=crop') center/cover;
     position: relative;
-    padding: 80px 0;
+    background: url('https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=1920&h=400&fit=crop') center/cover;
+    border-radius: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
+    overflow: hidden;
 }
+
 .promo-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(233, 30, 99, 0.95), rgba(194, 24, 91, 0.9));
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.95), rgba(194, 24, 91, 0.88));
 }
+
 .promo-badge {
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-.promo-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
     margin-bottom: 10px;
 }
-.promo-text {
-    color: rgba(255,255,255,0.8);
-    font-size: 1.1rem;
+
+.promo-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
 }
+
+@media (max-width: 768px) {
+    .promo-title { font-size: 1.4rem; }
+}
+
+.promo-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
 .btn-promo {
     background: white;
-    color: var(--primary);
-    padding: 15px 40px;
+    color: #e91e63;
+    padding: 12px 28px;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-weight: 800;
+    font-size: 0.95rem;
     text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    transition: all 0.25s ease;
 }
+
 .btn-promo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    color: var(--primary);
+    transform: translateY(-2px);
+    color: #c2185b;
 }
 
-/* ===== FLOWER TYPES ===== */
-.section-flower-types {
-    background: #f9f9f9;
-}
-.flower-card {
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.flower-card:hover {
-    transform: scale(1.05);
-}
-.flower-image-wrapper {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid var(--primary-light);
-    transition: all 0.3s ease;
-}
-.flower-card:hover .flower-image-wrapper {
-    border-color: var(--primary);
-}
-.flower-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.flower-name {
-    font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 5px;
-}
-.flower-desc {
-    color: #666;
-}
-
-/* ===== SEASONS ===== */
+/* Season Cards */
 .season-card {
     position: relative;
-    height: 300px;
-    border-radius: 25px;
+    height: 180px;
+    border-radius: 18px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease;
 }
+
+@media (min-width: 768px) {
+    .season-card { height: 260px; }
+}
+
 .season-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-4px);
 }
+
 .season-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .season-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding: 30px;
+    padding: 16px;
 }
+
 .season-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 4px;
 }
+
 .season-name {
     color: white;
     font-weight: 700;
+    font-size: 1rem;
     margin: 0;
 }
 
-/* ===== FEATURES ===== */
+/* Features */
 .section-features {
-    background: var(--gradient-dark);
-    padding: 60px 0;
-}
-.feature-card {
-    text-align: center;
-    padding: 30px;
-    transition: all 0.3s ease;
-}
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-.feature-title {
+    background: #1a1a2e;
     color: white;
-    font-weight: 700;
-    margin-bottom: 5px;
 }
+
+.feature-box {
+    text-align: center;
+    padding: 16px 10px;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
 .feature-text {
-    color: rgba(255,255,255,0.6);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0;
 }
 
-/* ===== REVIEWS ===== */
-.section-reviews {
-    background: white;
-}
-.review-card {
-    background: #f9f9f9;
-    padding: 30px;
-    border-radius: 20px;
+/* Reviews */
+.review-box {
+    background: #fbfbfb;
+    border: 1px solid #f0f0f0;
+    border-radius: 18px;
+    padding: 18px;
     height: 100%;
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
+
 .review-avatar {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     object-fit: cover;
 }
+
 .review-name {
     font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 5px;
-}
-.review-stars {
-    font-size: 0.9rem;
-}
-.review-content {
-    color: #666;
-    font-style: italic;
-    line-height: 1.7;
-    margin: 0;
+    font-size: 0.92rem;
 }
 
-/* ===== CTA ===== */
+/* CTA */
 .cta-section {
-    background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&h=400&fit=crop') center/cover;
     position: relative;
-    padding: 100px 0;
+    background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&h=400&fit=crop') center/cover;
 }
+
 .cta-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 107, 157, 0.95), rgba(194, 24, 91, 0.9));
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.95), rgba(194, 24, 91, 0.92));
 }
-.cta-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 15px;
-}
-.cta-text {
-    color: rgba(255,255,255,0.8);
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
+
 .btn-cta-primary {
     background: white;
-    color: var(--primary);
-    padding: 18px 45px;
+    color: #e91e63;
+    padding: 12px 28px;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-weight: 800;
     text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
 }
+
 .btn-cta-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    color: var(--primary);
+    transform: translateY(-2px);
+    color: #c2185b;
 }
+
 .btn-cta-outline {
     background: transparent;
     color: white;
-    padding: 18px 45px;
+    border: 2px solid white;
+    padding: 12px 24px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1.1rem;
-    border: 2px solid white;
-    transition: all 0.3s ease;
     text-decoration: none;
+    transition: all 0.2s;
 }
+
 .btn-cta-outline:hover {
     background: white;
-    color: var(--primary);
-}
-
-/* ===== MISC ===== */
-.bg-light-pink {
-    background: linear-gradient(180deg, #f0fff0 0%, #ffffff 100%);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-main-image { max-width: 350px; height: 400px; }
-    .floating-badge { display: none; }
-    .section-title { font-size: 2rem; }
-    .promo-title { font-size: 1.8rem; }
-    .cta-title { font-size: 2rem; }
-}
-@media (max-width: 768px) {
-    .hero-section { min-height: auto; padding: 100px 0 60px; }
-    .hero-stats { justify-content: center; }
-    .section-header { text-align: center; }
-    .product-image-wrapper { height: 200px; }
-    .season-card { height: 200px; }
+    color: #e91e63;
 }
 </style>

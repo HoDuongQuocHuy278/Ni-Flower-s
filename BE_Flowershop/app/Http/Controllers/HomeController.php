@@ -13,16 +13,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Sản phẩm nổi bật
-        $noiBat = BoHoa::with(['danhMuc', 'muaHoa', 'dipLe'])
+        // Sản phẩm nổi bật (load cả nhiều danh mục, mùa, dịp)
+        $noiBat = BoHoa::with(['danhMucs', 'muaHoas', 'dipLes', 'danhMuc', 'muaHoa', 'dipLe'])
             ->where('tinh_trang', 1)
             ->where('noi_bat', true)
             ->orderBy('id', 'desc')
             ->limit(8)
             ->get();
 
-        // Sản phẩm mới nhất
-        $moiNhat = BoHoa::with(['danhMuc', 'muaHoa', 'dipLe'])
+        // Sản phẩm mới nhất (load cả nhiều danh mục, mùa, dịp)
+        $moiNhat = BoHoa::with(['danhMucs', 'muaHoas', 'dipLes', 'danhMuc', 'muaHoa', 'dipLe'])
             ->where('tinh_trang', 1)
             ->orderBy('id', 'desc')
             ->limit(8)

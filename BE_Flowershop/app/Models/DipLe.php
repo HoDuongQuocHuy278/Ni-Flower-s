@@ -16,7 +16,7 @@ class DipLe extends Model
 
     public function boHoas()
     {
-        return $this->hasMany(BoHoa::class, 'id_dip_le');
+        return $this->belongsToMany(BoHoa::class, 'bo_hoa_dip_le', 'id_dip_le', 'id_bo_hoa');
     }
 
     const AN = 0;

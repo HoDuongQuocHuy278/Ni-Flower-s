@@ -16,7 +16,7 @@ class MuaHoa extends Model
 
     public function boHoas()
     {
-        return $this->hasMany(BoHoa::class, 'id_mua');
+        return $this->belongsToMany(BoHoa::class, 'bo_hoa_mua_hoa', 'id_mua', 'id_bo_hoa');
     }
 
     const AN = 0;

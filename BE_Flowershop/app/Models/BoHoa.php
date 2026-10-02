@@ -25,6 +25,23 @@ class BoHoa extends Model
         'tinh_trang',
     ];
 
+    // Many-to-Many relationships (1 bó hoa thuộc NHIỀU danh mục, NHIỀU mùa, NHIỀU dịp)
+    public function danhMucs()
+    {
+        return $this->belongsToMany(DanhMuc::class, 'bo_hoa_danh_muc', 'id_bo_hoa', 'id_danh_muc')->withTimestamps();
+    }
+
+    public function muaHoas()
+    {
+        return $this->belongsToMany(MuaHoa::class, 'bo_hoa_mua_hoa', 'id_bo_hoa', 'id_mua')->withTimestamps();
+    }
+
+    public function dipLes()
+    {
+        return $this->belongsToMany(DipLe::class, 'bo_hoa_dip_le', 'id_bo_hoa', 'id_dip_le')->withTimestamps();
+    }
+
+    // Giữ quan hệ cũ để tương thích ngược nếu cần
     public function danhMuc()
     {
         return $this->belongsTo(DanhMuc::class, 'id_danh_muc');

@@ -1,4 +1,4 @@
-﻿<template>
+<template>
     <div class="container py-4 py-md-5">
         <div class="row g-4">
             <div class="col-lg-12">
@@ -27,9 +27,12 @@
                         </div>
                     </div>
 
-                    <div class="mb-4 rounded overflow-hidden text-center">
+                    <div class="mb-4 rounded-4 overflow-hidden text-center">
                         <img :src="chi_tiet_bai_viet.hinh_anh"
-                            alt="" style="height: 500px;" class="img-fluid">
+                            alt="Bài viết" 
+                            style="max-height: 480px; width: 100%; object-fit: cover;" 
+                            class="img-fluid rounded-4 shadow-sm"
+                            @error="onImageError">
                     </div>
                     <div class="lh-lg">
                         <h3 class="fs-4 fw-semibold mb-3">Nội dung bài viết:</h3>
@@ -153,6 +156,9 @@ export default {
                         this.$router.push('/');
                     }
                 });
+        },
+        onImageError(e) {
+            e.target.src = 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=800&h=450&fit=crop';
         }
     },
 }

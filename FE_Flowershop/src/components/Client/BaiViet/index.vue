@@ -1,176 +1,149 @@
 <template>
-    <div class="row">
-        <div class="col">
-            <div class="card bg-dark text-white">
-                <img src="../../../assets/images/gallery/13.png" class="img-fluid" alt="..."
-                    style="height: 120px; object-fit: cover;">
-                <div class="card-img-overlay">
-                    <h4 class="card-title text-white" style="margin-left: 610px; margin-top: 30px;">Danh Sách Bài Viết
-                    </h4>
+    <div class="news-page py-3 py-lg-4">
+        <!-- Banner Header -->
+        <div class="container mb-4">
+            <div class="news-hero-banner rounded-4 text-center text-white py-4 py-lg-5 px-3 position-relative overflow-hidden shadow-sm">
+                <div class="banner-overlay"></div>
+                <div class="position-relative">
+                    <span class="badge bg-white text-danger rounded-pill px-3 py-2 fw-bold mb-2">🌸 Cẩm Nang & Ý Nghĩa Hoa</span>
+                    <h1 class="fw-bold fs-2 fs-lg-1 mb-2">Góc Yêu Hoa Ni Flower's</h1>
+                    <p class="small opacity-90 mb-0 max-w-500 mx-auto">
+                        Khám phá thông điệp của từng đóa hoa, bí quyết giữ hoa tươi lâu và gợi ý chọn hoa tinh tế nhất.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="row mt-4 mx-2">
-                        <div class="col-lg-12">
-                            <div class="card mb-3">
-                                <img src="https://cdn2.tuoitre.vn/zoom/700_390/2018/6/11/photo1528694960482-1528694960482702383188.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Thế giới khủng long và câu hỏi về sự ngạo mạn của loài người
-                                    </h5>
-                                    <p class="card-text">TTO - Đạo diễn Steven Spielberg đã quyết định xoá xổ công viên
-                                        khủng long trong tập phim thứ 5 Thế giới khủng long: vương quốc sụp đổ để mang
-                                        những sinh vật khổng lồ này đi vào xã hội loài người.</p>
-                                </div>
+        <div class="container">
+            <div class="row g-4">
+                <!-- Featured Article (Cột Trái hoặc Trên Mobile) -->
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-card">
+                        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=800&h=450&fit=crop" 
+                            class="card-img-top news-main-img" 
+                            alt="Hoa tươi">
+                        <div class="card-body p-3 p-md-4">
+                            <div class="d-flex align-items-center gap-2 mb-2 text-muted small">
+                                <span class="badge bg-danger rounded-pill">Nổi Bật</span>
+                                <span><i class="fa fa-calendar me-1"></i> Hôm nay</span>
+                                <span>• 5 phút đọc</span>
                             </div>
+                            <h4 class="card-title fw-bold text-dark mb-2">
+                                7 Mẹo Đơn Giản Giúp Hoa Tươi Lâu Đến 10 Ngày Mà Ai Cũng Làm Được
+                            </h4>
+                            <p class="card-text text-secondary small lh-lg">
+                                Bạn vừa nhận được một bó hoa tuyệt đẹp nhưng lo lắng hoa sẽ sớm tàn? Khám phá ngay các bí quyết tỉa gốc chéo 45 độ, thay nước sạch hàng ngày và dinh dưỡng tự nhiên giúp hoa nở đều và giữ độ tươi lâu nhất!
+                            </p>
+                            <router-link to="/danh-muc" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-bold">
+                                Khám Phá Mẫu Hoa Tươi <i class="fa fa-arrow-right ms-1"></i>
+                            </router-link>
                         </div>
                     </div>
                 </div>
-                <h5>Các Bài Viết Khác</h5>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6 d-flex">
-                        <div class="card flex-full">
-                            <img src="https://www.galaxycine.vn/media/2025/2/27/1800x1200_1740651635343.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title ">Phim Hay Tháng 03.2025: Bạch Tuyết pk Quỷ Nhập Tràng</h6>
-                                <p class="card-text "><small>Some quick example text to build on the card title and make
-                                        up the
-                                        bulk of the card's content.</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 d-flex">
-                        <div class="card flex-full">
-                            <img src="https://www.galaxycine.vn/media/2024/10/28/pht11-750_1730103049846.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title ">Những Người Hùng Trở Lại</h6>
-                                <p class="card-text "><small>Some quick example text to build on the card title and make
-                                        up the
-                                        bulk of the card's content.</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card p-4">
-                    <div class="row">
-                        <div class="col-lg-12 d-flex justyfy-content-between">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/medium/6807d282c2e55893144104.jpg"
-                                            class="img-fluid" alt="" style="height: 150px;">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="card-body">
-                                            <h5 class="text-truncate">Tiêu đề bài viết Lorem ipsum dolor sit amet.</h5>
-                                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Modi enim
-                                                autem officia
-                                                ab voluptatem. Perspiciatis nam natus molestiae accusamus aliquam.</p>
-                                        </div>
-                                    </div>
+
+                <!-- Article List (Cột Phải) -->
+                <div class="col-lg-5">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 hover-card" v-for="(post, index) in blogPosts" :key="index">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-4 col-sm-3 col-lg-4">
+                                    <img :src="post.image" class="img-fluid rounded-3 w-100 object-fit-cover" style="height: 90px;" :alt="post.title">
+                                </div>
+                                <div class="col-8 col-sm-9 col-lg-8">
+                                    <span class="badge bg-light text-danger small mb-1">{{ post.tag }}</span>
+                                    <h6 class="fw-bold text-dark mb-1 text-truncate-2 small">{{ post.title }}</h6>
+                                    <p class="text-muted small mb-0 text-truncate-1">{{ post.desc }}</p>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="col-lg-12 d-flex justyfy-content-between">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/medium/6809f8356e715717366849.jpg"
-                                            class="img-fluid" alt="" style="height: 150px;">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="card-body">
-                                            <h5 class="text-truncate">Những review đầu tiên dành cho Thunderbolts: Biệt
-                                                Đội Sấm Sét (2025)</h5>
-                                            <p class="mb-0">Thunderbolts: Biệt Đội Sấm Sét là một cú hit đầy tiềm năng
-                                                nhà Marvel.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="col-lg-12 d-flex justyfy-content-between">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/medium/681c2521bc7fc964269586.png"
-                                            class="img-fluid" alt="" style="height: 150px;">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="card-body">
-                                            <h5 class="text-truncate">Doraemon Movie 44 (2025) - Sẽ có phiên bản lồng
-                                                tiếng của gia đình Pam Yêu Ơi</h5>
-                                            <p class="mb-0">Xem lịch chiếu phim chiếu rạp Doraemon 2025: Nobita Và Cuộc
-                                                Phiêu Lưu Vào Thế Giới Trong Tranh, sẽ có phiên bản lồng tiếng của gia
-                                                đình Pam Yêu Ơi và combo Doraemon Movie 44 siêu hấp dẫn.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="col-lg-12 d-flex justyfy-content-between">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/medium/680f06392e121752384462.jpg"
-                                            class="img-fluid" alt="" style="height: 150px;">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="card-body">
-                                            <h5 class="text-truncate">Lật Mặt 8 - Phim của Lý Hải lập kỷ lục chưa từng
-                                                có</h5>
-                                            <p class="mb-0">131.000 vé xem phim Lật Mặt 8: Vòng Tay Nắng đã được bán ra
-                                                ngay cả khi phim chưa chiếu. Bộ phim có gì mà hot như vậy?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="col-lg-12 d-flex justyfy-content-between">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/medium/68133d79ed1c0948042403.png"
-                                            class="img-fluid" alt="" style="height: 150px;">
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="card-body">
-                                            <h5 class="text-truncate">
-                                                Thám Tử Kiên: Kỳ Án Không Đầu - 9 vai diễn ấn tượng của Đinh Ngọc Diệp
-                                            </h5>
-                                            <p class="mb-0">Đinh Ngọc Diệp trở lại đầy nội lực ở Thám Tử Kiên: Kỳ Án
-                                                Không Đầu sau gần 20 năm theo đuổi nghệ thuật diễn xuất.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 <script>
 export default {
-
-}
+    data() {
+        return {
+            blogPosts: [
+                {
+                    title: 'Ý Nghĩa Số Lượng Bông Hoa Hồng Bạn Cần Biết Trước Khi Tặng',
+                    desc: '1 bông nghĩa là Duy nhất, 9 bông là Trường cửu, 99 bông là Tình yêu vĩnh hằng...',
+                    tag: 'Ý Nghĩa Hoa',
+                    image: 'https://images.unsplash.com/photo-1518882605630-8a6392e87b54?w=300&h=300&fit=crop'
+                },
+                {
+                    title: 'Cách Chọn Hoa Cưới Cầm Tay Cô Dâu Tone Pastel Sang Trọng',
+                    desc: 'Tone màu hồng phấn, trắng kem và cam đào đang là xu hướng hoa cưới dẫn đầu năm nay...',
+                    tag: 'Hoa Cưới',
+                    image: 'https://images.unsplash.com/photo-1520763185298-1b434c919102?w=300&h=300&fit=crop'
+                },
+                {
+                    title: 'Top 5 Loài Hoa Chúc Mừng Khai Trương Mang Lại Tài Lộc Phát Đạt',
+                    desc: 'Hoa đồng tiền, hoa hướng dương, lan hồ điệp - những biểu tượng vạn lộc hanh thông...',
+                    tag: 'Khai Trương',
+                    image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=300&h=300&fit=crop'
+                },
+                {
+                    title: 'Bí Quyết Tặng Hoa Sinh Nhật Cho Người Yêu Khiến Nàng Say Đắm',
+                    desc: 'Không chỉ là đóa hoa đẹp, tấm thiệp viết tay chân thành sẽ nhân đôi cảm xúc yêu thương...',
+                    tag: 'Tư Vấn',
+                    image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=300&h=300&fit=crop'
+                }
+            ]
+        };
+    }
+};
 </script>
-<style></style>
+
+<style scoped>
+.news-hero-banner {
+    background: url('https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1600&h=400&fit=crop') center/cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(194, 24, 91, 0.92), rgba(26, 26, 46, 0.85));
+}
+
+.max-w-500 {
+    max-width: 500px;
+}
+
+.news-main-img {
+    height: 240px;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .news-main-img {
+        height: 320px;
+    }
+}
+
+.hover-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1) !important;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text-truncate-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>

@@ -16,7 +16,7 @@ class DanhMuc extends Model
 
     public function boHoas()
     {
-        return $this->hasMany(BoHoa::class, 'id_danh_muc');
+        return $this->belongsToMany(BoHoa::class, 'bo_hoa_danh_muc', 'id_danh_muc', 'id_bo_hoa');
     }
 
     const AN = 0;
